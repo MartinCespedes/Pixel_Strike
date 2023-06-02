@@ -43,7 +43,7 @@ class Game extends React.Component {
   
   state = {
     selectedShipIndex: 0,
-    shipNames: ["Red Destroyer", "Lighting Speed"], // Add more ship names as necessary
+    shipNames: ["Red Destroyer", "Lighting Speed", "Galaxy Gladiator", "Stellar Streak"], // Added more ship names
   }
 
   handleShipChange = (direction) => {
@@ -60,18 +60,23 @@ class Game extends React.Component {
   render() {
     const { selectedShipIndex, shipNames } = this.state;
     return (
-      <div>
-        <div id="game-title">
-          <h1>Pixel Strike</h1>
-        </div>
-        <div id="score-board">
-          <h2>Score: <span id="score">0</span></h2>
-          <h2>Lives: <span id="lives">3</span></h2>
-        </div>
-        <div id="ship-selector">
-          <button onClick={() => this.handleShipChange(-1)}>&lt;</button>
-          <span>{shipNames[selectedShipIndex]}</span>
-          <button onClick={() => this.handleShipChange(1)}>&gt;</button>
+      <div id="layout-container">
+        <div id="info-container">
+          <div id="game-title">
+            <h1>Pixel Strike</h1>
+          </div>
+          <div id="score-board">
+            <h2>Score: <span id="score">0</span></h2>
+            <h2>Lives: <span id="lives">3</span></h2>
+          </div>
+          <div id="ship-selector">
+            <button className="arrow-btn" onMouseDown={() => this.setState({leftPressed: true})} onMouseUp={() => this.setState({leftPressed: false})} onClick={() => this.handleShipChange(-1)}>&#9664;</button>
+            <div className="ship-display">
+              <img src="placeholder.png" alt="ship"/> {/* Replace "placeholder.png" with the path to your image */}
+              <span>{shipNames[selectedShipIndex]}</span>
+            </div>
+            <button className="arrow-btn" onMouseDown={() => this.setState({rightPressed: true})} onMouseUp={() => this.setState({rightPressed: false})} onClick={() => this.handleShipChange(1)}>&#9654;</button>
+          </div>
         </div>
         <div id="game-container">
           <canvas ref={this.canvasRef} id="game-canvas" width="800" height="600"></canvas>

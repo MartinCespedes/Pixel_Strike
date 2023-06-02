@@ -2,20 +2,30 @@ body {
     background: #000;
     color: #fff;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+#layout-container {
+    display: flex;
+    align-items: start;
+    margin-left: 100px; /* Increase this value if you want more space on the left */
+}
+
+#info-container {
+    margin-right: 50px;
 }
 
 #game-container {
     width: 800px;
     border: 1px solid #fff;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #game-canvas {
     background: #000;
 }
 
-#game-title {
+#game-title, #score-board h2 {
     text-align: left;
     color: #fff;
     text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
@@ -25,18 +35,40 @@ body {
 
 #score-board {
     display: flex;
-    justify-content: space-between;
-    width: 800px;
+    flex-direction: column;
     margin-left: 10px;
-    margin-right: 10px;
 }
 
 #ship-selector {
     margin-left: 10px;
-    margin-right: 10px;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 800px;
+    padding: 10px;
+    height: 200px; /* Change this value to adjust the height of the ship selector */
+}
+
+.arrow-btn {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+}
+
+.arrow-btn:active {
+    color: #ff0;
+}
+
+.ship-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ship-display img {
+    width: 100px; /* Adjust as necessary */
+    height: 100px; /* Adjust as necessary */
 }
