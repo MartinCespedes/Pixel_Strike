@@ -1,6 +1,9 @@
 import React from 'react';
 import './Game.css';
 import RedDestroyer from './assets/Red_Destroyer.gif'
+import YellowStreak from './assets/Yellow_Streak.gif'
+import BlueLighting from './assets/Blue_Lighting.gif'
+import PurpleDestroyer from './assets/Purple_Destroyer.gif'
 // import spaceship from './assets/spaceship_svg.svg'; 
 
 class Game extends React.Component {
@@ -47,9 +50,9 @@ class Game extends React.Component {
     selectedShipIndex: 0,
     shipNames: [
       { name: "Red Destroyer", color: "red", image: RedDestroyer },
-      { name: "Lighting Speed", color: "blue" },
-      { name: "Galaxy Gladiator", color: "purple" },
-      { name: "Stellar Streak", color: "yellow" },
+      { name: "Lighting Speed", color: "blue", image: BlueLighting },
+      { name: "Galaxy Gladiator", color: "purple", image: PurpleDestroyer },
+      { name: "Stellar Streak", color: "yellow", image: YellowStreak },
     ],
   }
 
