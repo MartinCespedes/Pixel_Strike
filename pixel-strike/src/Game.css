@@ -6,19 +6,37 @@ body {
 
 #game-container {
     width: 800px;
-    margin: 0 auto;
+    border: 1px solid #fff;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #game-canvas {
     background: #000;
-    border: 1px solid #fff;
 }
 
-#game-ui {
-    text-align: center;
+#game-title {
+    text-align: left;
+    color: #fff;
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+    font-size: 2em;
+    margin-left: 10px;
 }
 
 #score-board {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 800px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#ship-selector {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
 }
