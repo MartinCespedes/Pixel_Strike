@@ -25,17 +25,13 @@ The game employs a top-down perspective and is inspired by classic arcade shooti
 1. To install application, clone the main project via the HTTP or SSH link on github.
 
 ```
-
 git clone
-
 ```
 
 2. Once cloned, open the project folder in your text editor and run the following command in terminal to install all dependencies.
 
 ```
-
 npm install
-
 ```
 
 ## Technologies Used
@@ -84,11 +80,5 @@ npm install
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ```
-
 This project is covered under the MIT License.
-
-```
-
-```
-
 ```
