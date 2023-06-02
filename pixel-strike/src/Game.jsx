@@ -1,5 +1,6 @@
 import React from 'react';
 import './Game.css';
+import RedDestroyer from './assets/Red_Destroyer.gif'
 // import spaceship from './assets/spaceship_svg.svg'; 
 
 class Game extends React.Component {
@@ -45,7 +46,7 @@ class Game extends React.Component {
   state = {
     selectedShipIndex: 0,
     shipNames: [
-      { name: "Red Destroyer", color: "red" },
+      { name: "Red Destroyer", color: "red", image: RedDestroyer },
       { name: "Lighting Speed", color: "blue" },
       { name: "Galaxy Gladiator", color: "purple" },
       { name: "Stellar Streak", color: "yellow" },
@@ -78,7 +79,7 @@ class Game extends React.Component {
           <div id="ship-selector">
             <button className="arrow-btn" onMouseDown={() => this.setState({leftPressed: true})} onMouseUp={() => this.setState({leftPressed: false})} onClick={() => this.handleShipChange(-1)}>&#9664;</button>
             <div className="ship-display">
-          <img src="placeholder.png" alt="ship"/> {/* Replace "placeholder.png" with the path to your image */}
+          <img src={shipNames[selectedShipIndex].image} alt="ship"/> {/* This will now display the image of the selected ship */}
           <span className={`ship-name ${shipNames[selectedShipIndex].color}`}>{shipNames[selectedShipIndex].name}</span>
         </div>
             <button className="arrow-btn" onMouseDown={() => this.setState({rightPressed: true})} onMouseUp={() => this.setState({rightPressed: false})} onClick={() => this.handleShipChange(1)}>&#9654;</button>
