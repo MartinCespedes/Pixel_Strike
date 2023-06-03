@@ -139,7 +139,7 @@ class Game extends React.Component {
             </div>
             <button className="arrow-btn" onClick={() => this.handleShipChange(1)}>&#9654;</button>
           </div>
-          {!gameStarted && <button id="start-button" onClick={this.handleGameStart}>Start Game</button>}
+          {!gameStarted && <button id="start-button" onClick={this.handleGameStart}><span>Start Game</span></button>}
         </div>
         <div id="game-container">
           <canvas ref={this.canvasRef} id="game-canvas" width="800" height="600"></canvas>

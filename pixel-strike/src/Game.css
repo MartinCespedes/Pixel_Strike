@@ -103,14 +103,73 @@ body {
     font-size: 1.5em;
     cursor: pointer;
     text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 20px;
 }
 
-#start-button:hover {
-    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 50px #ff0;
+#start-button:before,
+#start-button:after {
+    content: '';
+    position: absolute;
+    background: #ff0;
+    transition: all 0.5s;
 }
 
-#start-button:active {
-    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 30px #ff0;
+#start-button:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateX(-100%);
+}
+
+#start-button:after {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateX(100%);
+}
+
+#start-button:hover:before {
+    transform: translateX(0);
+}
+
+#start-button:hover:after {
+    transform: translateX(0);
+}
+
+#start-button span:before,
+#start-button span:after {
+    content: '';
+    position: absolute;
+    background: #ff0;
+    transition: all 0.5s;
+}
+
+#start-button span:before {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateY(-100%);
+}
+
+#start-button span:after {
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    transform: translateY(100%);
+}
+
+#start-button:hover span:before {
+    transform: translateY(0);
+}
+
+#start-button:hover span:after {
+    transform: translateY(0);
 }
 
 @keyframes float {
