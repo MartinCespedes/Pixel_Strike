@@ -9,7 +9,8 @@ body {
 #layout-container {
     display: flex;
     align-items: start;
-    margin-left: 100px; /* Increase this value if you want more space on the left */
+    margin-left: 100px;
+    /* Increase this value if you want more space on the left */
 }
 
 #info-container {
@@ -25,7 +26,8 @@ body {
     background: #000;
 }
 
-#game-title, #score-board h2 {
+#game-title,
+#score-board h2 {
     text-align: left;
     color: #fff;
     text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
@@ -46,7 +48,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    height: 200px; /* Change this value to adjust the height of the ship selector */
+    height: 200px;
+    /* Change this value to adjust the height of the ship selector */
 }
 
 .arrow-btn {
@@ -71,7 +74,8 @@ body {
 .ship-display img {
     width: 64px;
     height: 64px;
-    image-rendering: pixelated; /* This ensures your pixel art stays crisp */
+    image-rendering: pixelated;
+    /* This ensures your pixel art stays crisp */
     animation: ship-animation 1s steps(10) infinite, float 2s ease-in-out infinite;
 }
 
@@ -90,8 +94,35 @@ body {
 .ship-name.yellow {
     text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
 }
+
+#start-button {
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
+}
+
+#start-button:hover {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 50px #ff0;
+}
+
+#start-button:active {
+    text-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 30px #ff0;
+}
+
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-  }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}

@@ -24,7 +24,7 @@ class Game extends React.Component {
       }
     };
   }
-
+  
   componentDidMount() {
     window.addEventListener("keydown", this.handleKeyDown);
     window.addEventListener("keyup", this.handleKeyUp);
@@ -75,36 +75,43 @@ class Game extends React.Component {
 
   handleKeyDown = (event) => {
     const { shipPosition } = this.state;
+    let newPosX = shipPosition.x;
+    let newPosY = shipPosition.y;
+
     switch(event.key) {
       case "ArrowUp":
-        this.setState({ shipPosition: {...shipPosition, y: shipPosition.y - 50 }});
+        newPosY = shipPosition.y - 30;
         break;
       case "ArrowDown":
-        this.setState({ shipPosition: {...shipPosition, y: shipPosition.y + 50 }});
+        newPosY = shipPosition.y + 30;
         break;
       case "ArrowRight":
-        this.setState({ shipPosition: {...shipPosition, x: shipPosition.x + 50}});
+        newPosX = shipPosition.x + 30;
         break;
       case "ArrowLeft":
-        this.setState({ shipPosition: {...shipPosition, x: shipPosition.x - 50 }});
+        newPosX = shipPosition.x - 30;
         break;
       default:
         break;
     }
+
+    newPosX = Math.max(0, Math.min(newPosX, 750)); // confine within 0 and 750 (canvas width - ship width)
+    newPosY = Math.max(0, Math.min(newPosY, 550)); // confine within 0 and 550 (canvas height - ship height)
+
+    this.setState({
+      shipPosition: {
+        x: newPosX,
+        y: newPosY,
+      }
+    });
   };
 
-  handleKeyUp = (event) => {
-    // If needed, you can handle key up events here
-  };
+  handleKeyUp = (event) => {};
 
   handleShipChange = (direction) => {
     const { selectedShipIndex, shipNames } = this.state;
-    let newIndex = selectedShipIndex + direction;
-
-    // Wrap around if the index goes out of bounds
-    if (newIndex < 0) newIndex = shipNames.length - 1;
-    else if (newIndex >= shipNames.length) newIndex = 0;
-
+    let newIndex = (selectedShipIndex + direction) % shipNames.length;
+    if (newIndex < 0) newIndex += shipNames.length;
     this.setState({ selectedShipIndex: newIndex });
   };
 
@@ -131,8 +138,8 @@ class Game extends React.Component {
               <span className={`ship-name ${shipNames[selectedShipIndex].color}`}>{shipNames[selectedShipIndex].name}</span>
             </div>
             <button className="arrow-btn" onClick={() => this.handleShipChange(1)}>&#9654;</button>
-            {!gameStarted && <button onClick={this.handleGameStart}>Start Game</button>}
           </div>
+          {!gameStarted && <button id="start-button" onClick={this.handleGameStart}>Start Game</button>}
         </div>
         <div id="game-container">
           <canvas ref={this.canvasRef} id="game-canvas" width="800" height="600"></canvas>
